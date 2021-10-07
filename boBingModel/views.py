@@ -94,7 +94,9 @@ def addPlayer(request):
 
 def editPlayer(request):  # 编辑玩家信息
     if request.method == 'POST':
-        photo = request.FILES['photo']  # 获取请求信息
+        new_photo = request.POST.get('new_photo')
+        if new_photo == 1:
+            photo = request.FILES['photo']  # 获取请求信息
         name = request.POST.get('name')
         uid = request.POST.get('id')
         users = Player.objects.filter(name=name)  # 判断该昵称是否重复
@@ -104,7 +106,9 @@ def editPlayer(request):  # 编辑玩家信息
                 if not (user.id == uid):
                     return JsonResponse({"message": '该昵称已存在'})
         users = Player.objects.get(id=uid)  # 判断图片是否存在，名字一样就视为图片一样
-        if photo:
+        if not users:
+            return JsonResponse({"message": 'id出错'})
+        if new_photo == 1 and photo:
             photo_info, suf = os.path.splitext(photo.name)
             if suf.upper() not in ['.JPG', '.JPEG', '.PNG']:
                 return JsonResponse({"message": '图片格式不正确'})
@@ -113,10 +117,10 @@ def editPlayer(request):  # 编辑玩家信息
             path = os.path.join(path, photo.name)
             if not os.path.exists(path):
                 users.photo = photo  # 不一样则修改头像
-            users.name = name
-            users.save()  # 保存信息
-            users = Player.objects.filter(name__exact=name)  # 返回修改后信息
-            return JsonResponse({"message": 'success', "data": serializers.serialize('python', users)})
+        users.name = name
+        users.save()  # 保存信息
+        users = Player.objects.filter(name__exact=name)  # 返回修改后信息
+        return JsonResponse({"message": 'success', "data": serializers.serialize('python', users)})
     return JsonResponse({"message": 'wrong'})
 
 
