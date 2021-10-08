@@ -5,7 +5,7 @@ import re
 from django.core import serializers
 from django.db.models import Min
 from django.http import JsonResponse, HttpResponse
-from boBingModel.models import Player, Record
+from boBingModel.models import Player, Record, GameId
 from bobing import settings
 
 rules = [
@@ -34,7 +34,19 @@ def doRandom():  # 产生随机数列表，即骰子点数
     return ran
 
 
-# 需测试
+# 测试成功
+def start(request):
+    if request.method == 'POST':
+        result = {"message": 'success', "data": []}
+        lun = int(request.POST.get('lun'))
+        num = int(request.POST.get('num'))
+        game = GameId.objects.create(round=lun, playerNum=num)
+        result["data"].append({"id": game.id})
+        return JsonResponse(result)
+    return JsonResponse({"message": 'wrong'})
+
+
+# 测试成功
 def judge(request):  # 用于判断点数对应的奖项
     if request.method == 'POST':
         pid = int(request.POST.get('pid'))  # 获取记录信息
@@ -42,7 +54,7 @@ def judge(request):  # 用于判断点数对应的奖项
         num = int(request.POST.get('num'))
         now_round = int(request.POST.get('now_lun'))
         uid = int(request.POST.get('uid'))
-
+        print(pid, lun, num, now_round, uid)
         result = {"message": 'success', "data": []}
         ran = doRandom()
         result["data"].append({})
@@ -84,7 +96,7 @@ def allPlayer(request):
     return JsonResponse({"message": 'wrong'})
 
 
-# 需测试
+# 测试成功
 def addPlayer(request):
     # 添加玩家
     if request.method == 'POST':
@@ -145,7 +157,7 @@ def editPlayer(request):  # 编辑玩家信息
     return JsonResponse({"message": 'wrong'})
 
 
-# 需测试
+# 测试成功
 def deletePlayer(request):
     # 删除玩家
     if request.method == 'POST':

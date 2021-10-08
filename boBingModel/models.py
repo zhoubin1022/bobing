@@ -16,3 +16,8 @@ class Record(models.Model):
     playerNum = models.SmallIntegerField()  # 玩家人数
     nowLevel = models.SmallIntegerField(null=False)  # 本局游戏最高奖项
     uid = models.ForeignKey('Player', on_delete=models.CASCADE)  # 参与玩家id，必须在player中出现
+
+
+class GameId(models.Model):
+    round = models.SmallIntegerField()  # 总轮数
+    playerNum = models.SmallIntegerField()  # 玩家人数

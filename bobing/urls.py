@@ -29,6 +29,7 @@ urlpatterns = [
     path('usr/editPlayer', views.editPlayer),
     path('usr/deletePlayer', views.deletePlayer),
     path('usr/partPlayer', views.partPlayer),
+    path('game/start', views.start),
     path('game/judge', views.judge),
     path('record/allRecord', views.allRecord),
     # path('record/addRecord', views.addRecord),
