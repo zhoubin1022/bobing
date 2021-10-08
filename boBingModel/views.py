@@ -180,7 +180,7 @@ def partPlayer(request):
     return JsonResponse({"message": 'wrong'})
 
 
-# 需测试
+# 测试成功
 def allRecord(request):  # 返回某个玩家所有记录
     if request.method == 'POST':
         uid = int(request.POST.get('id'))

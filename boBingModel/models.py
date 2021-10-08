@@ -10,7 +10,7 @@ class Player(models.Model):
 
 
 class Record(models.Model):
-    pid = models.SmallIntegerField()  # 本轮游戏id
+    pid = models.IntegerField()  # 本轮游戏id
     round = models.SmallIntegerField()  # 总轮数
     now_round = models.SmallIntegerField(default=0)  # 当前为第几轮
     playerNum = models.SmallIntegerField()  # 玩家人数
