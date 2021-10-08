@@ -1,0 +1,189 @@
+.setting{
+  position: absolute;
+  top:3vh;
+  left:0vw;
+
+  width: 100vw;
+  height: 24vh;
+
+}
+
+.playerNumSetting{
+  position: absolute;
+  top:0vh;
+  left:0vw;
+
+  width: 100vw;
+  height: 12vh;
+
+}
+
+.gameNumSetting{
+  position: absolute;
+  top:14vh;
+  left:0vw;
+
+  width: 100vw;
+  height: 12vh;
+}
+
+.playerNumWords,
+.gameNumWords{
+  position: absolute;
+  top: 1vh;
+  left: 10vw;
+
+  height: 10vh;
+  width: 40vw;
+
+  opacity: 0.7;
+}
+
+.countNumIcon{
+  position: absolute;
+  top: 1vh;
+  right: 12vw;
+
+  height: 10vh;
+  width: 30vw;
+}
+
+.plusButton{
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+
+  height: 6vh;
+  width: 6vw !important;
+
+}
+
+.plusIcon{
+  position: absolute;
+  top: 0vh;
+  right: 1vw;
+
+  height: 6vh;
+  width: 6vw;
+}
+
+.subButton{
+  position: absolute;
+  top: 2vh;
+  right: 20vw;
+
+  height: 6vh;
+  width: 6vw !important;
+}
+
+.subIcon{
+  position: absolute;
+  top: 0vh;
+  right: 1vw;
+
+  height: 6vh;
+  width: 6vw;
+}
+
+.numPos{
+  position: absolute;
+  top: 3vh;
+  right: 9vw;
+
+  height: 6vh;
+  width: 10vw;
+
+  text-align: center;
+}
+
+.playerView{
+  position: absolute;
+  top: 30vh;
+
+  height: 50vh;
+  width: 100vw;
+
+  /* background-color: yellow; */
+}
+
+.optionalPlayersView{
+  position: absolute;
+  left: 5vw;
+  top: 5vh;
+  height: 40vh;
+  width: 40vw;
+
+  /* background-color: blue; */
+}
+
+.selectedPlayersView{
+  position: absolute;
+  right: 5vw;
+  top: 5vh;
+  height: 40vh;
+  width: 40vw;
+
+  /* background-color: blue; */
+}
+.selectedPlayers,
+.optionalPlayers{
+  position: relative;
+  height: 6vh;
+  width: 30vw;
+
+  border-top:1px solid #000;
+  border-bottom:1px solid #000;
+  border-right:1px solid #000;
+  border-left:1px solid #000;
+}
+.textEdit{
+  position: relative;
+  height: 5vh;
+  width: 20vw;
+}
+.editButton{
+  position: relative;
+  top: -4.5vh;
+  left: 20vw;
+  height: 5vh;
+  width: 5vw !important;
+  /* background-color: white; */
+}
+
+.increaseButton{
+  position: relative;
+  top: 0.5vh;
+  left: -2vw;
+  height: 5vh;
+  width: 5vw;
+ 
+}
+
+.decreaseButton{
+  position: relative;
+  top: 0.5vh;
+  left: -2vw;
+  height: 5vh;
+  width: 5vw;
+}
+
+.okButton{
+  position: absolute;
+  bottom: 12vh;
+  left: 34vw;
+  height: 9vh;
+  width: 28vw !important;
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 1cm;
+}
+
+.okButtonWord{
+  position: absolute;
+  top: 1vh;
+  left: 0vw;
+  width: 27vw;
+  height: 7vh;
+
+  
+}

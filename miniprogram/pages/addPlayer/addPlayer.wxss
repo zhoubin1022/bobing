@@ -1,0 +1,83 @@
+.imageForm{
+  position: absolute;
+  top: 16vh;
+  left: 25vw;
+
+  width: 45vw;
+  height: 30vh;
+}
+
+.buttonForm{
+  position: absolute;
+  bottom: 0vh;
+  right: 0vw;
+
+  width: 11vw !important;
+  height: 7vh;
+
+}
+
+.camaraIcon{
+  position: absolute;
+  top: 0vh;
+  left: 0vw;
+
+  width: 11vw;
+  height: 7vh;  
+}
+
+.nameBar{
+  position: absolute;
+  top: 50vh;
+  left: 20vw;
+
+  width: 60vw;
+  height: 7vh;  
+
+  background-color: white;
+}
+
+.nickName{
+  position: absolute;
+  top: 1vh;
+  left: 2vw;
+
+  width: 13vw;
+  height: 4vh;  
+
+  background-color: yellow;
+}
+
+.inputName{
+  position: absolute;
+  top: 0vh;
+  left: 18vw;
+
+  width: 35vw;
+  height: 7vh;  
+
+  background-color: yellow;
+}
+
+.okButton{
+  position: absolute;
+  top: 70vh;
+  left: 18vw;
+
+  width: 35vw !important;
+  height: 7vh;  
+
+  background-color: yellow;
+
+}
+
+.delButton{
+  position: absolute;
+  top: 70vh;
+  right: 10vw;
+
+  width: 35vw !important;
+  height: 7vh;  
+
+  background-color: yellow;
+}

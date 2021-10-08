@@ -1,0 +1,115 @@
+.imagePos{
+  position: absolute;
+  top: 4vh;
+  left: 5vw;
+  width: 20vw;
+  height: 22vw;
+}
+.namePos{
+  position: absolute;
+  top: 4vh;
+  left: 28vw;
+  width: 32vw;
+  height: 8vw;
+
+  background-color: white;
+}
+
+.numPos{
+  position: absolute;
+  top: 5vh;
+  right: 13vw;
+  width: 18vw;
+  height: 10vw;
+  font-size: 32px;
+}
+
+.roundPos{
+  position: absolute;
+  top: 4vh;
+  right: 5vw;
+  width: 34vw;
+  height: 15vw;
+}
+
+.bowl{
+  position: absolute;
+  bottom: 20vh;
+  left: 5vw;
+
+  height: 46vh;
+  width: 90vw;
+}
+
+.dice1{
+  position: absolute;
+  bottom: 20vh;
+  left: 28vw;
+
+  height: 9vh;
+  width: 9vw;
+}
+
+.dice2{
+  position: absolute;
+  bottom: 9vh;
+  left: 42vw;
+
+  height: 9vh;
+  width: 9vw;
+}
+
+.dice3{
+  position: absolute;
+  bottom: 18vh;
+  left: 40vw;
+
+  height: 9vh;
+  width: 9vw;
+}
+
+.dice4{
+  position: absolute;
+  bottom: 11vh;
+  left: 28vw;
+
+  height: 9vh;
+  width: 9vw;
+}
+
+.dice5{
+  position: absolute;
+  bottom: 11vh;
+  left: 54vw;
+
+  height: 9vh;
+  width: 9vw;
+}
+
+.dice6{
+  position: absolute;
+  bottom: 20vh;
+  left: 51vw;
+
+  height: 9vh;
+  width: 9vw;
+}
+
+.diceButton{
+  position: absolute;
+  bottom: 10vh;
+  left: 29vw;
+
+  height: 10vh;
+  width: 34vw !important;
+
+
+}
+
+.diceWords{
+  position: absolute;
+  bottom: 0vh;
+  left: 0vw;
+  height: 10vh;
+  width: 34vw;
+}
