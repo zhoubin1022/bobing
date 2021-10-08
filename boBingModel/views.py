@@ -3,6 +3,7 @@ import random
 import re
 
 from django.core import serializers
+from django.db.models import Min
 from django.http import JsonResponse, HttpResponse
 from boBingModel.models import Player, Record
 from bobing import settings
@@ -33,13 +34,20 @@ def doRandom():  # 产生随机数列表，即骰子点数
     return ran
 
 
+# 需测试
 def judge(request):  # 用于判断点数对应的奖项
-    if request.method == 'GET':
+    if request.method == 'POST':
+        pid = int(request.POST.get('pid'))  # 获取记录信息
+        lun = int(request.POST.get('lun'))
+        num = int(request.POST.get('num'))
+        now_round = int(request.POST.get('now_lun'))
+        uid = int(request.POST.get('uid'))
+
         result = {"message": 'success', "data": []}
         ran = doRandom()
         result["data"].append({})
         for i in range(len(ran)):  # 生成json
-            result["data"][0][f"num_{i+1}"] = ran[i]
+            result["data"][0][f"num_{i + 1}"] = ran[i]
         ran.sort()  # 排序，便于匹配
         ran_str = ''
         for i in ran:  # 将列表转为字符串
@@ -51,12 +59,21 @@ def judge(request):  # 用于判断点数对应的奖项
                 level = x
                 break
         result["data"][0]["level"] = level  # 奖项
+        # 修改玩家最高纪录
+        user = Player.objects.get(id=uid)
+        if (not user.level) or user.level > int(level):
+            user.level = level
+            user.save()
+        # 并添加该记录
+        new_record = Record.objects.create(pid=pid, round=lun, playerNum=num, nowLevel=level, uid_id=uid, now_round=now_round)
+        new_record.save()
         # print(result_ran)
         # print(level)
         return JsonResponse(result)
     return JsonResponse({"message": 'wrong'})
 
 
+# 测试成功
 def allPlayer(request):
     # 获取全部玩家信息
     if request.method == 'GET':
@@ -67,6 +84,7 @@ def allPlayer(request):
     return JsonResponse({"message": 'wrong'})
 
 
+# 需测试
 def addPlayer(request):
     # 添加玩家
     if request.method == 'POST':
@@ -92,13 +110,15 @@ def addPlayer(request):
     return JsonResponse({"message": 'wrong'})
 
 
+# 测试成功
 def editPlayer(request):  # 编辑玩家信息
     if request.method == 'POST':
-        new_photo = request.POST.get('new_photo')
+        new_photo = int(request.POST.get('new_photo'))
+        photo = None
         if new_photo == 1:
             photo = request.FILES['photo']  # 获取请求信息
         name = request.POST.get('name')
-        uid = request.POST.get('id')
+        uid = int(request.POST.get('id'))
         users = Player.objects.filter(name=name)  # 判断该昵称是否重复
         # return JsonResponse({"message": 'success', "data": serializers.serialize('python', users)})
         if users.exists():
@@ -115,8 +135,9 @@ def editPlayer(request):  # 编辑玩家信息
             path = os.path.join(settings.BASE_DIR, 'media')
             path = os.path.join(path, 'photos')
             path = os.path.join(path, photo.name)
-            if not os.path.exists(path):
-                users.photo = photo  # 不一样则修改头像
+            if os.path.exists(path):
+                os.remove(path)
+            users.photo = photo  # 不一样则修改头像
         users.name = name
         users.save()  # 保存信息
         users = Player.objects.filter(name__exact=name)  # 返回修改后信息
@@ -124,16 +145,18 @@ def editPlayer(request):  # 编辑玩家信息
     return JsonResponse({"message": 'wrong'})
 
 
+# 需测试
 def deletePlayer(request):
     # 删除玩家
     if request.method == 'POST':
-        uid = request.POST.get('id')  # 根据id找到对应玩家并删除
+        uid = int(request.POST.get('id'))  # 根据id找到对应玩家并删除
         users = Player.objects.get(id=uid)
         users.delete()
         return JsonResponse({"message": 'success'})
     return JsonResponse({"message": 'wrong'})
 
 
+# 需测试
 def partPlayer(request):
     # 模糊查询玩家
     if request.method == 'POST':
@@ -145,22 +168,24 @@ def partPlayer(request):
     return JsonResponse({"message": 'wrong'})
 
 
+# 需测试
 def allRecord(request):  # 返回某个玩家所有记录
     if request.method == 'POST':
-        uid = request.POST.get('id')
-        records = Record.objects.filter(uid__exact=uid)  # 获取记录
+        uid = int(request.POST.get('id'))
+        records = Record.objects.filter(uid__exact=uid).order_by('pid')  # 获取记录
         result = {"message": 'success', "data": serializers.serialize('python', records)}
         return JsonResponse(result)
     return JsonResponse({"message": 'wrong'})
 
-
+# 丢弃功能
+'''
 def addRecord(request):  # 添加记录
     if request.method == 'POST':
-        pid = request.POST.get('pid')  # 获取记录信息
-        lun = request.POST.get('lun')
-        num = request.POST.get('num')
-        level = request.POST.get('level')
-        uid = request.POST.get('uid')
+        pid = int(request.POST.get('pid'))  # 获取记录信息
+        lun = int(request.POST.get('lun'))
+        num = int(request.POST.get('num'))
+        level = int(request.POST.get('level'))
+        uid = int(request.POST.get('uid'))
         # 修改玩家最高奖项
         user = Player.objects.get(id=uid)
         if (not user.level) or user.level > int(level):
@@ -173,8 +198,10 @@ def addRecord(request):  # 添加记录
         records = Record.objects.filter(pid=pid).filter(uid_id=uid)
         return JsonResponse({"message": 'success', "data": serializers.serialize('python', records)})
     return JsonResponse({"message": 'wrong'})
+'''
 
 
+# 需测试
 def allRank(request):
     # 返回排行榜
     if request.method == 'GET':
@@ -187,16 +214,20 @@ def allRank(request):
     return JsonResponse({"message": 'wrong'})
 
 
+# 需测试
 def nowRank(request):  # 本轮游戏排行榜
     if request.method == 'POST':
-        pid = request.POST.get('id')  # 游戏id
+        pid = int(request.POST.get('id'))  # 游戏id
         result = {"message": 'success', "data": []}
-        records = Record.objects.filter(pid=pid).order_by('nowLevel')  # 根据id获取记录并排序
-        for record in records:  # 简化信息
-            user_rank = {}
+        records = Record.objects.raw('select id from bobingmodel_record '
+                                     'where pid=%s group by uid_id order by min(nowLevel)'
+                                     , params=[pid, ])
+        for record in records:
+            now_rank = {}
             user = Player.objects.get(id=record.uid_id)
-            user_rank["name"] = user.name
-            user_rank['level'] = record.nowLevel
-            result["data"].append(user_rank)
+            now_rank["name"] = user.name
+            now_rank["level"] = record.nowLevel
+            result["data"].append(now_rank)
+        # result["data"] = serializers.serialize('python', records)
         return JsonResponse(result)
     return JsonResponse({"message": 'wrong'})

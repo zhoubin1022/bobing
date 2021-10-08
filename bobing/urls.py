@@ -31,7 +31,7 @@ urlpatterns = [
     path('usr/partPlayer', views.partPlayer),
     path('game/judge', views.judge),
     path('record/allRecord', views.allRecord),
-    path('record/addRecord', views.addRecord),
+    # path('record/addRecord', views.addRecord),
     path('rank/allRank', views.allRank),
     path('rank/nowRank', views.nowRank),
     re_path('^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT})

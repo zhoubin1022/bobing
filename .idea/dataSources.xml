@@ -10,5 +10,13 @@
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/bobing</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="HSQLDB (Local)" uuid="f5bae201-1bcb-4f8e-878d-685f58df2dec">
+      <driver-ref>hsqldb.local</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>org.hsqldb.jdbc.JDBCDriver</jdbc-driver>
+      <jdbc-url>jdbc:hsqldb:file:C:/ProgramData/MySQL/MySQL Server 5.7/Data/bobing/</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

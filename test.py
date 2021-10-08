@@ -33,7 +33,7 @@ test(GET, "/usr/allPlayer")
 # addPlayer
 test(POST, "/usr/addPlayer", Files=files, data={'name': "admin"})
 # editPlayer
-test(POST, "/usr/editPlayer", Files=files, data={'name': "admin", 'id': 12})
+test(POST, "/usr/editPlayer", Files=files, data={'new_photo': 1, 'name': "admin", 'id': 12})
 # deletePlayer
 test(POST, "/usr/deletePlayer", data={'id': 12})
 # partPlayer
