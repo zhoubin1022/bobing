@@ -1,0 +1,11 @@
+<image src="/images/backgroundPictures/picture01.jpg" class="setBackground"> 
+  <image src="/images/backgroundPictures/bowl.png" class="bowl">
+    <image 
+      src="/images/icons/1.png" 
+     
+      class='dice1'></image>
+  </image>
+  
+  <cover-image src="/images/backgroundPictures/diceGIF.gif" class="gifPos">
+  </cover-image>
+</image>

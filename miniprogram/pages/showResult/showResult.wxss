@@ -53,6 +53,12 @@
   width: 30vw;
   height: 3vh;
 }
-.ohhh{
-  background-color:lightyellow;
+.backHomePage{
+  position: absolute;
+  left: 15vw;
+  bottom: 3vh;
+  
+  background-color: lightyellow;
+  opacity: 0.7;
+  border-radius: 1cm;
 }

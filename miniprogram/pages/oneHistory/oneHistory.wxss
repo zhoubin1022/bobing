@@ -1,0 +1,76 @@
+.imageForm{
+  position: absolute;
+  top: 4vh;
+  left: 25vw;
+
+  width: 45vw;
+  height: 30vh;
+}
+
+.buttonForm{
+  position: absolute;
+  bottom: 0vh;
+  right: 0vw;
+
+  width: 11vw !important;
+  height: 7vh;
+
+}
+
+.camaraIcon{
+  position: absolute;
+  top: 0vh;
+  left: 0vw;
+
+  width: 11vw;
+  height: 7vh;  
+}
+
+.nameBar{
+  position: absolute;
+  top: 35vh;
+  left: 20vw;
+
+  width: 60vw;
+  height: 7vh;  
+
+}
+
+.nickName{
+  position: absolute;
+  top: 34vh;
+  width: 100vw;
+  height: 14vh;  
+  text-align: center;
+  font-size: 60px;
+  font-family: "华文行楷"
+}
+
+.words{
+  position: absolute;
+  top: 0vh;
+
+}
+
+.recordRange{
+  position: absolute;
+  top: 50vh;
+  left: 5vw;
+  width: 90vw;
+  height: 45vh;
+
+}
+
+
+.historyView{
+  position: absolute;
+  top: 5vh;
+  width: 90vw;
+  height: 40vh;
+}
+
+.oneRecord{
+  position: relative;
+  width: 100vw;
+  height: 5vh;
+}

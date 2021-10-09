@@ -1,39 +1,42 @@
-// pages/history/history.js
+// pages/showResult/showResult.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    allPlayersNum: 0,
-    allPlayersInfo: {},
-    color: ['white','lightyellow'],
-    str: 'http://37446r369t.zicp.vip/media/'
-  },
-  goto(e){
-    const temp = e.currentTarget.dataset.player
-    const player = JSON.stringify(temp)
-    console.log(player)
-    wx.navigateTo({
-      url: '/pages/oneHistory/oneHistory?player=' + player
-    })
+    gameid: 0,
+    rankInfo:[],
+    prize: ['状元插金花','六杯红','遍地锦','六杯黑','五红','五子登科','四点红','对堂','三红','四进','二举','一秀','无'],
+    color: ['white','lightyellow']
   },
 
+  goHomePage(){
+    wx.redirectTo({
+      url: '/pages/homePage/homePage'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.gameid)
+    this.setData({
+      gameid: options.gameid
+    })
     var that = this
     wx.request({
-      url:'http://37446r369t.zicp.vip/usr/allPlayer',
-      header: { 'Content-Type': ' application/json' },
-      success:function(res){
-        // console.log(res);
-        const temp = res.data.data
-        console.log(temp.length)
+      url: 'http://37446r369t.zicp.vip/rank/nowRank',
+      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      method: 'POST',
+      data:{
+        "id": that.data.gameid
+      },
+      success(res){
+        var temp = res.data.data
+        console.log(temp)
         that.setData({
-          allPlayersNum: temp.length,
-          allPlayersInfo: temp
+          rankInfo: temp
         })
       }
     })

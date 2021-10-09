@@ -1,0 +1,22 @@
+.bowl{
+  position: absolute;
+  bottom: 20vh;
+  left: 5vw;
+  height: 46vh;
+  width: 90vw;
+}
+.gifPos{
+  position: absolute;
+  top: 41vh;
+  left: 21vw;
+  width: 67vw;
+  height: 30vh;
+}
+.dice1{
+  position: absolute;
+  bottom: 20vh;
+  left: 28vw;
+
+  height: 6vh;
+  width: 6vw;
+}

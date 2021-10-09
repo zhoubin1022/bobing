@@ -17,5 +17,6 @@
         </text>
       </view>              
     </scroll-view>
+    <button bindtap="goHomePage" class="backHomePage">回到首页</button>
   </view>  
 </image>

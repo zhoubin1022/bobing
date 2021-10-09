@@ -72,25 +72,39 @@ Page({
   },
   delTap(){
     var that = this
-    wx.request({
-      url: 'http://37446r369t.zicp.vip/usr/deletePlayer',
-      method: "POST",
-      header: { 'Content-Type': ' application/x-www-form-urlencoded' },
-      data:{
-        "id": that.data.id
-      },
+    wx.showModal({
+      title: '提示',
+      content: '确认删除该玩家?',
+      cancelColor: 'cancelColor',
       success(res){
-        console.log(res)
+        if (res.confirm) {
+          console.log('用户点击确定')       
+          wx.request({
+            url: 'http://37446r369t.zicp.vip/usr/deletePlayer',
+            method: "POST",
+            header: { 'Content-Type': ' application/x-www-form-urlencoded' },
+            data:{
+              "id": that.data.id
+            },
+            success(res){
+              console.log(res)
+            }
+          })
+          wx.navigateBack({
+            delta: 1,
+            success: function (e) {
+            var page = getCurrentPages().pop();
+              if(page == undefined || page == null) return;
+                page.onLoad();
+              }
+          })
+        }
+        else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })
-    wx.navigateBack({
-      delta: 1,
-      success: function (e) {
-      var page = getCurrentPages().pop();
-        if(page == undefined || page == null) return;
-          page.onLoad();
-        }
-    })
+    
   },
   chooseImage(){
     var that = this

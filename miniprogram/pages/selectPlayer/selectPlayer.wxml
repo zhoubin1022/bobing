@@ -3,7 +3,7 @@
   <view class="setting">
     <!-- 选择玩家人数 -->
     <view class="playerNumSetting">
-      <image src="/images/artisticFont/playerNumber.png" class="playerNumWords"></image>
+      <text class="playerNumWords">选择玩家人数</text>
       <view class="countNumIcon">
         <button
           bindtap="playerNumHandleTap"
@@ -27,12 +27,9 @@
     </view>
 
 
-
-
-
     <!-- 设置游戏局数 -->
     <view class="gameNumSetting">
-      <image src="/images/artisticFont/gameNumber.png" class="gameNumWords"></image>
+      <text class="gameNumWords">设置游戏局数</text>
       <view class="countNumIcon">
         <button
           bindtap="gameNumHandleTap"
@@ -59,8 +56,13 @@
   <!-- 可选玩家和已选玩家 -->
   <view class="playerView">
     <!-- 可选玩家 -->
-    <scroll-view class="optionalPlayersView">
-      <view wx:for="{{optionalPlayers}}" wx:for-item="item" class="optionalPlayers">
+    <scroll-view scroll-y="true" class="optionalPlayersView">
+      <view 
+        wx:for="{{optionalPlayers}}" 
+        wx:for-item="item" 
+        wx:for-index="index"
+        class="optionalPlayers"
+        style="background-color: {{color1[index%2]}};">
         <view class="textEdit">{{item.fields.name}}</view>
         <button
           bindtap="addPlayer" 
@@ -74,8 +76,13 @@
     </scroll-view>
 
     <!-- 待选玩家 -->
-    <scroll-view class="selectedPlayersView">
-      <view wx:for="{{selectedPlayers}}" wx:for-item="item" class="selectedPlayers">
+    <scroll-view scroll-y="true" class="selectedPlayersView">
+      <view
+        wx:for="{{selectedPlayers}}"
+        wx:for-item="item"
+        wx:for-index="index"
+        class="selectedPlayers"
+        style="background-color: {{color2[index%2]}};">
         <view class="textEdit">{{item.fields.name}}</view>
         <button
           bindtap="subPlayer" 
@@ -90,8 +97,9 @@
 
   <!-- 确认按钮 -->
   <button bindtap="goPage" class="okButton">
-    <image src="/images/buttons/ok.png" class="okButtonWord">    
-    </image>
+    确认
   </button>
-
+  <button bindtap="gohomePage" class="cancelButton">
+    取消
+  </button>
 </image>

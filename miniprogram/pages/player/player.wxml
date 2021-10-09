@@ -1,4 +1,4 @@
-<image src="/images/backgroundPictures/picture01.jpg" class="setBackground">
+<image src="/images/backgroundPictures/picture02.jpg" class="setBackground">
   <!-- 搜索界面 -->
   <view class="searchView">
     <image src="/images/icons/searchIcon.png" class="searchIcon"></image>
@@ -8,10 +8,15 @@
   <!-- 玩家名单 -->
   <view class="player">
     <scroll-view scroll-y="true" class="scrollerView">
-      <view wx:for="{{allPlayersInfo}}" wx:for-item="item"    class="playersInfo">
+      <view
+        wx:for="{{allPlayersInfo}}" 
+        wx:for-item="item" 
+        wx:for-index="index" 
+        class="playersInfo" 
+        style="background-color: {{color[index%2]}};">
         <image src='{{str+item.fields.photo}}' class="imageEdit"></image>
         <view class="textEdit">{{item.fields.name}}</view>
-        <button bindtap="goPage" data-info="{{item}}"   class="editButton">编辑信息</button>
+        <button size="mini" bindtap="goPage" data-info="{{item}}"   class="editButton">编辑信息</button>
       </view>
     </scroll-view>
   </view>

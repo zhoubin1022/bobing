@@ -9,7 +9,7 @@
   
   <!-- 名字 -->
   <view class="nameBar">
-    <text class="nickName">昵称</text>
+    <text class="nickName">昵称:</text>
     <input type="text" value="{{tempName}}" bindinput="handleInput" class="inputName"></input>
 
     

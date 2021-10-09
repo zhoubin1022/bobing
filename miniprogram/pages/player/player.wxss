@@ -28,12 +28,12 @@
   position: absolute;
   top: 10vh;
   width: 100vw;
-  height: 50vh;
+  height: 60vh;
 }
 
 .scrollerView{
   position: absolute;
-  height: 45vh;
+  height: 60vh;
   width: 100vw;
 }
 
@@ -50,7 +50,7 @@
   left: 5vw;
   top: 1vh;
   height: 9vh;
-  width: 17vw;
+  width: 15vw;
 
   border-radius: 5cm;
 }
@@ -60,29 +60,30 @@
   top: -7vh;
   left: 24vw;
   text-align: center;
-  height: 10vh;
-  width: 17vw;
+  height: 5vh;
+  width: 35vw;
 }
 
 .editButton{
   position: relative;
-  top: -19vh;
-  left: 19vw;
+  top: -13vh;
+  left: 65vw;
   text-align: center;
   height: 10vh;
-  width: 50vw !important;
+  width: 28vw !important;
 }
 
 .addPlayerButton{
   position: absolute;
-  bottom: 20vh;
+  bottom: 18vh;
   left: 30vw;
   width: 40vw !important;
   height: 10vh;
+  line-height: 7vh;
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 1cm;
 }
-
-
-
 .navigationBar{
   position: absolute;
   bottom: 0vh;
@@ -147,4 +148,7 @@
 
   font-size: 8px;
   text-align: center;
+}
+.c{
+  background-color: linen;
 }

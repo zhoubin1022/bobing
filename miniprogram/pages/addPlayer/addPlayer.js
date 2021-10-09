@@ -1,6 +1,5 @@
 // pages/addPlayer/addPlayer.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -31,14 +30,20 @@ Page({
         console.log(res.data + "成功")
       },
     })
+    wx.navigateBack({
+      delta: 1,
+      success: function (e) {
+      var page = getCurrentPages().pop();
+        if(page == undefined || page == null) return;
+          page.onLoad();
+        }
+    })
   },
-
   cancelTap(){
     wx.navigateBack({
       delta: 1
     })
   },
-
   chooseImage(){
     var that = this
     wx.chooseImage({

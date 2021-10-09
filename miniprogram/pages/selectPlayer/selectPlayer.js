@@ -10,7 +10,10 @@ Page({
     optionalPlayers:[],
     selectedPlayers:[],
     playerNum:2,
-    gameNum:1
+    gameNum:1,
+    gameid: 0,
+    color1: ['white','lightyellow'],
+    color2: ['lightyellow','white']
   },
 
   playerNumHandleTap(e){
@@ -77,14 +80,37 @@ Page({
     console.log(this.data.selectedPlayers)
     console.log(this.data.optionalPlayers)
   },
-  
+  gohomePage(){
+    wx.redirectTo({
+      url: '/pages/homePage/homePage'
+    })
+  },
   goPage(e){
     var that = this
     const temp = this.data.selectedPlayers
     const info = JSON.stringify(temp)
     console.log(info)
-    wx.navigateTo({
-        url: '/pages/startGame/startGame?info=' + info + '&playerNum=' + that.data.playerNum + '&gameNum=' + that.data.gameNum
+    
+    wx.request({
+      url: 'http://37446r369t.zicp.vip/game/start',
+      method: "POST",
+      header: { 'Content-Type': ' application/x-www-form-urlencoded' },
+      data:{
+        "lun": that.data.gameNum,
+        "num": that.data.playerNum
+      },
+      success: function (res) {
+        console.log(res.data + "成功")
+        var temp = res.data.data[0].id
+        console.log(temp)
+        that.setData({        
+          gameid: temp
+        })
+        // 前往下一个页面，并传递参数
+        wx.redirectTo({
+          url: '/pages/startGame/startGame?info=' + info + '&playerNum=' + that.data.playerNum + '&gameNum=' + that.data.gameNum + '&gameid=' + that.data.gameid
+        })
+      }
     })
   },
 

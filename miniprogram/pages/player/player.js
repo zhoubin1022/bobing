@@ -7,6 +7,7 @@ Page({
   data: {
     allPlayersNum: 0,
     allPlayersInfo:{},
+    color: [' linen','lightyellow'],
     str: 'http://37446r369t.zicp.vip/media/'
   },
 

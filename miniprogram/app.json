@@ -1,15 +1,24 @@
 {
   "pages": [
     "pages/homePage/homePage",
+    "pages/test/test",
+    
+    
+    
+    "pages/selectPlayer/selectPlayer",
+    "pages/showResult/showResult",
+    
+    "pages/history/history",
+    "pages/oneHistory/oneHistory",
     "pages/player/player",
     "pages/addPlayer/addPlayer",
-   
-   "pages/selectPlayer/selectPlayer",
+    
+    
    
     
     "pages/startGame/startGame",  
     "pages/editPlayer/editPlayer",
-    "pages/history/history",
+    
     "pages/gameRules/gameRules",   
     "pages/rank/rank" 
   ],

@@ -9,21 +9,36 @@ Page({
     prize: ['状元插金花','六杯红','遍地锦','六杯黑','五红','五子登科','四点红','对堂','三红','四进','二举','一秀','无'],
     level: 12,
     players:[],
-    playerNum: '',
+    playerNum: 0,
     currentGameNum: 1,
     currentPlayer: 0,
-    gameNum: '',
-    str: 'http://37446r369t.zicp.vip/media/'
+    gameNum: 0,
+    gameid: 0,
+    str: 'http://37446r369t.zicp.vip/media/',
+    showFlag: false,
+    hiddenGIF: true,
+    hiddenDice: false,
+    hiddenButton: false
   },
-
-
 
   handleTap(){
     var that = this
+    console.log(that.data.gameid)
+    console.log(that.data.gameNum)
+    console.log(that.data.playerNum)
+    console.log(that.data.currentGameNum)
+    console.log(that.data.players[that.data.currentPlayer].pk)
     wx.request({
       url: 'http://37446r369t.zicp.vip/game/judge',
-      header: { 'Content-Type': ' application/json' },
-      method: "GET",
+      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      method: "POST",
+      data:{
+        "pid": that.data.gameid,
+        "lun": that.data.gameNum,
+        "num": that.data.playerNum,
+        "now_lun": that.data.currentGameNum,
+        "uid": that.data.players[that.data.currentPlayer].pk
+      },
       success(res){
         console.log(res)
         const temp = res.data.data[0]
@@ -38,17 +53,36 @@ Page({
         })
       }
     })
-    
-    
-
-
+    this.setData({
+      hiddenGIF: false,
+      hiddenDice: true,
+      hiddenButton: true
+    })
+    setTimeout(this.stopGIF,3000)
+    setTimeout(this.infoOver,7000)
+    setTimeout(this.judge,7000)
+  },
+  stopGIF(){
+    this.setData({
+      hiddenGIF: true,
+      hiddenDice: false,
+      showFlag: true
+    })
+  },
+  infoOver(){
+    this.setData({
+      showFlag: false,
+      hiddenButton: false
+    })
+  },
+  judge(){
     this.setData({
       currentPlayer: this.data.currentPlayer + 1
     })
     if( this.data.currentPlayer==this.data.playerNum ){
       if(this.data.currentGameNum==this.data.gameNum){
-        wx.navigateTo({
-          url: '/pages/homePage/homePage'
+        wx.redirectTo({
+          url: '/pages/showResult/showResult?gameid=' + this.data.gameid
         })
       }
       else{
@@ -58,7 +92,6 @@ Page({
         })   
       }
     }
-    
   },
 
   /**
@@ -67,11 +100,12 @@ Page({
   onLoad: function (options) {
     var temp = JSON.parse(options.info)
     console.log(temp)
-    console.log(options.gameNum)
+    console.log(options.gameid)
     this.setData({
       players: temp,
       playerNum: options.playerNum,
-      gameNum: options.gameNum
+      gameNum: options.gameNum,
+      gameid: options.gameid
     })
   },
 

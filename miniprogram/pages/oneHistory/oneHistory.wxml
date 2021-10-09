@@ -1,0 +1,33 @@
+<image src="/images/backgroundPictures/picture01.jpg" class="setBackground">
+
+  <!-- 头像 -->
+  <image src='{{tempFilePaths}}' class='imageForm'></image>
+
+  <!-- 名字 -->
+  <text class="nickName">{{info.fields.name}}</text> 
+
+  <!-- 历史记录 -->
+  <view class="recordRange">
+    <!-- 属性 -->
+    <view class="words">
+      <text style="position:relative;left:2vw">对局id</text>
+      <text style="position:relative;left:6vw">游戏轮数</text>
+      <text style="position:relative;left:10vw">玩家数量</text>
+      <text style="position:relative;left:14vw">最高奖项</text>
+    </view>
+    
+    <scroll-view class="historyView" scroll-y="true">
+      <view
+        wx:for="{{record}}" 
+        wx:for-item="item" 
+        wx:for-index="index"
+        class="oneRecord"
+        style="background-color: {{color[index%2]}};">
+        <text style="position:absolute;left:5vw">{{item.fields.pid}}</text>
+        <text style="position:absolute;left:26vw">{{item.fields.now_round}}/{{item.fields.round}}</text>
+        <text style="position:absolute;left:53vw">{{item.fields.playerNum}}</text>
+        <text style="position:absolute;left:73vw">{{prize[item.fields.nowLevel]}}</text>                        
+      </view>
+    </scroll-view>
+  </view>
+</image>

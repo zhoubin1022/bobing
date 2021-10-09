@@ -12,7 +12,10 @@
   <view class="mainPage">
     <!-- 第一块区域 开始游戏 -->
     
-    <navigator url="/pages/selectPlayer/selectPlayer" class="startGame">
+    <navigator 
+      url="/pages/selectPlayer/selectPlayer" 
+      class="startGame" 
+      open-type="redirect">
       
       <image 
         src="/images/buttons/startGameWords.png" 

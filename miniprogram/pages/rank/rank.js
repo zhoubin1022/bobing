@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    rankInfo:''
+    rankInfo:[],
+    prize: ['状元插金花','六杯红','遍地锦','六杯黑','五红','五子登科','四点红','对堂','三红','四进','二举','一秀','无'],
+    color: ['white','lightyellow']
   },
 
   /**
@@ -19,7 +21,7 @@ Page({
       method: 'GET',
       success(res){
         var temp = res.data.data
-        console.log(res)
+        console.log(temp)
         that.setData({
           rankInfo: temp
         })
