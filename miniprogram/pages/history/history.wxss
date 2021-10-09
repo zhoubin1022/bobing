@@ -1,0 +1,75 @@
+page{
+  height: 100%;
+  width: 100%;
+}
+
+/* .plusButton{
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+
+  height: 6vh;
+  width: 6vw !important;
+
+  background-color: yellow;
+}
+
+.subButton{
+  position: absolute;
+  top: 2vh;
+  right: 20vw;
+
+  height: 6vh;
+  width: 6vw !important;
+
+  background-color: yellow;
+}
+.numPos{
+  position: absolute;
+  top: 3vh;
+  right: 5vw;
+
+  height: 6vh;
+  width: 20vw;
+
+  text-align: center;
+} */
+.player{
+  position: absolute;
+  top: 10vh;
+  width: 100vw;
+  height: 50vh;
+}
+
+.scrollerView{
+  position: absolute;
+  height: 45vh;
+  width: 100vw;
+}
+
+.playersInfo{
+  position: relative;
+  height: 10vh;
+  width: 100vw;
+
+  border-color: black;
+}
+
+.imageEdit{
+  position: relative;
+  left: 5vw;
+  top: 1vh;
+  height: 9vh;
+  width: 17vw;
+
+  border-radius: 5cm;
+}
+
+.textEdit{
+  position: relative;
+  top: -7vh;
+  left: 24vw;
+  text-align: center;
+  height: 10vh;
+  width: 17vw;
+}

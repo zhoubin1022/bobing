@@ -1,0 +1,97 @@
+<image src="/images/backgroundPictures/picture02.jpg" class="setBackground">
+  <!-- 设置玩家人数和游戏局数 -->
+  <view class="setting">
+    <!-- 选择玩家人数 -->
+    <view class="playerNumSetting">
+      <image src="/images/artisticFont/playerNumber.png" class="playerNumWords"></image>
+      <view class="countNumIcon">
+        <button
+          bindtap="playerNumHandleTap"
+          data-operation="{{1}}"
+          size="mini"
+          class="plusButton">
+          <image src="/images/buttons/plusIcon.png" class="plusIcon"></image>
+          
+        </button>
+        <view class="numPos">{{playerNum}}</view>
+        <button
+          bindtap="playerNumHandleTap"
+          data-operation="{{-1}}"
+          size="mini"
+          class="subButton">
+          <image src="/images/buttons/subIcon.png" class="subIcon">
+          </image>
+        </button>
+        
+      </view>
+    </view>
+
+
+
+
+
+    <!-- 设置游戏局数 -->
+    <view class="gameNumSetting">
+      <image src="/images/artisticFont/gameNumber.png" class="gameNumWords"></image>
+      <view class="countNumIcon">
+        <button
+          bindtap="gameNumHandleTap"
+          data-operation="{{1}}"
+          size="mini"
+          class="plusButton">
+          <image src="/images/buttons/plusIcon.png" class="plusIcon"></image>
+          
+        </button>
+        <view class="numPos">{{gameNum}}</view>
+        <button
+          bindtap="gameNumHandleTap"
+          data-operation="{{-1}}"
+          size="mini"
+          class="subButton">
+          <image src="/images/buttons/subIcon.png" class="subIcon">
+          </image>
+        </button>
+        
+      </view>
+    </view>
+  </view>
+
+  <!-- 可选玩家和已选玩家 -->
+  <view class="playerView">
+    <!-- 可选玩家 -->
+    <scroll-view class="optionalPlayersView">
+      <view wx:for="{{optionalPlayers}}" wx:for-item="item" class="optionalPlayers">
+        <view class="textEdit">{{item.fields.name}}</view>
+        <button
+          bindtap="addPlayer" 
+          data-player="{{item}}" 
+          class="editButton" 
+          size="mini">
+          <image src="/images/buttons/plusIcon.png" class="increaseButton">
+          </image>
+        </button>
+      </view>
+    </scroll-view>
+
+    <!-- 待选玩家 -->
+    <scroll-view class="selectedPlayersView">
+      <view wx:for="{{selectedPlayers}}" wx:for-item="item" class="selectedPlayers">
+        <view class="textEdit">{{item.fields.name}}</view>
+        <button
+          bindtap="subPlayer" 
+          data-player="{{item}}" 
+          class="editButton" 
+          size="mini">
+          <image src="/images/buttons/subIcon.png" class="decreaseButton"></image>
+        </button>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 确认按钮 -->
+  <button bindtap="goPage" class="okButton">
+    <image src="/images/buttons/ok.png" class="okButtonWord">    
+    </image>
+  </button>
+
+</image>

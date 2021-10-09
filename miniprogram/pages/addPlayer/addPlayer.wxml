@@ -1,0 +1,24 @@
+<image src="/images/backgroundPictures/picture01.jpg" class="setBackground">
+
+<!-- 头像 -->
+<image src='{{tempFilePaths}}' class='imageForm'>
+  <button bindtap="chooseImage" class="buttonForm" size="mini">
+    <image src="/images/icons/camaraIcon.png" class="camaraIcon"></image>
+  </button>
+</image>
+
+<!-- 名字 -->
+<view class="nameBar">
+  <text class="nickName">昵称</text>
+  <input type="text" value="{{tempName}}" bindinput="handleInput" class="inputName"></input>
+
+  
+</view>
+
+<!-- 按钮 -->
+<!-- 确定 -->
+<button bindtap="okTap" class="okButton">确认</button>
+<!-- 取消 -->
+<button bindtap="cancelTap" class="delButton">取消</button>
+
+</image>

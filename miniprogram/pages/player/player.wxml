@@ -1,0 +1,47 @@
+<image src="/images/backgroundPictures/picture01.jpg" class="setBackground">
+  <!-- 搜索界面 -->
+  <view class="searchView">
+    <image src="/images/icons/searchIcon.png" class="searchIcon"></image>
+    <input type="text" class="inputBar"></input>
+  </view>
+
+  <!-- 玩家名单 -->
+  <view class="player">
+    <scroll-view scroll-y="true" class="scrollerView">
+      <view wx:for="{{allPlayersInfo}}" wx:for-item="item"    class="playersInfo">
+        <image src='{{str+item.fields.photo}}' class="imageEdit"></image>
+        <view class="textEdit">{{item.fields.name}}</view>
+        <button bindtap="goPage" data-info="{{item}}"   class="editButton">编辑信息</button>
+      </view>
+    </scroll-view>
+  </view>
+  
+  <!-- 增加玩家按钮 -->
+  <button bindtap="addPlayer" class="addPlayerButton">
+    增加玩家
+  </button>
+
+
+  <!-- 下方导航栏区域 -->
+  <view class="navigationBar">
+    <navigator url="/pages/homePage/homePage" open-type="redirect" class="navigationHomePage">
+      <image
+        src="/images/icons/homePageIcon.png" 
+        class="homePageIcon">
+      </image>
+      <text class="homePageWords">主页</text>
+    </navigator>
+
+    
+    <navigator
+      url="/pages/player/player"
+      open-type="redirect"
+      class="navigationPlayer">
+      <image
+        src="/images/icons/playerIcon.png" 
+        class="playerIcon">
+      </image>
+      <text class="playerWords">玩家</text>
+    </navigator>
+  </view>
+</image>

@@ -1,0 +1,5 @@
+<image src="/images/backgroundPictures/picture01.jpg" class="setBackground">
+  <view wx:for="{{rankInfo}}" wx:for-item="item">
+    {{item.name}}{{item.level}}
+  </view>
+</image>

@@ -1,0 +1,7 @@
+<image
+  src="/images/backgroundPictures/gameRules01.png" 
+  class="picture1"></image>
+<image
+  src="/images/backgroundPictures/gameRules02.png" 
+  show-menu-by-longpress: true 
+  class="picture2"></image>

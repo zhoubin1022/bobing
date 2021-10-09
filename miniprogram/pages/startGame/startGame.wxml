@@ -1,0 +1,31 @@
+<image src="/images/backgroundPictures/picture01.jpg" class="setBackground">
+  
+  <!-- 当前玩家 -->
+  <image src="{{str+players[currentPlayer].fields.photo}}" class="imagePos">
+  </image>
+  <text class="namePos">{{players[currentPlayer].fields.name}}</text>
+  
+  <!-- 当前轮数 -->
+  <image src="/images/backgroundPictures/whatRound.png" class="roundPos"></image>
+  <text class="numPos">{{currentGameNum}}/{{gameNum}}</text>
+
+  <!-- 摇骰子画面 -->
+  <image src="/images/backgroundPictures/bowl.png" class="bowl">
+    <image src="/images/icons/{{diceNum[0]}}.png" class='dice1'></image>
+    <image src="/images/icons/{{diceNum[1]}}.png" class='dice2'></image>
+    <image src="/images/icons/{{diceNum[2]}}.png" class='dice3'></image>
+    <image src="/images/icons/{{diceNum[3]}}.png" class='dice4'></image>
+    <image src="/images/icons/{{diceNum[4]}}.png" class='dice5'></image>
+    <image src="/images/icons/{{diceNum[5]}}.png" class='dice6'></image>
+  </image>
+  
+  <button bindtap="handleTap" class="diceButton" size="mini">
+    <image src="/images/buttons/diceButton.png" class="diceWords"></image>
+  </button>
+
+
+
+
+
+
+</image>

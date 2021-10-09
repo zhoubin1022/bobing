@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/homePage/homePage",
+    "pages/player/player",
+    "pages/addPlayer/addPlayer",
+   
+   "pages/selectPlayer/selectPlayer",
+   
+    
+    "pages/startGame/startGame",  
+    "pages/editPlayer/editPlayer",
+    "pages/history/history",
+    "pages/gameRules/gameRules",   
+    "pages/rank/rank" 
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#DDCFBA",
+    "navigationBarTitleText": "中秋小游戏",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

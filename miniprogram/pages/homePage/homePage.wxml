@@ -1,0 +1,77 @@
+<!--pages/homepage/homepage.wxml-->
+<image src="/images/backgroundPictures/picture01.jpg" class="setBackground">
+  
+  <!-- 游戏规则 -->
+  <navigator 
+    url="/pages/gameRules/gameRules" 
+    class="gameRulesButton">
+    游戏规则
+  </navigator>
+
+  <!-- 屏幕中间区域 -->
+  <view class="mainPage">
+    <!-- 第一块区域 开始游戏 -->
+    
+    <navigator url="/pages/selectPlayer/selectPlayer" class="startGame">
+      
+      <image 
+        src="/images/buttons/startGameWords.png" 
+        class="startGameWords">
+      </image>
+
+      <image 
+        src="/images/icons/startGameIcon.png" 
+        class="startGameIcon">
+      </image>
+      
+    </navigator>
+      
+
+    <!-- 第二块区域 排行榜 -->
+    <navigator url="/pages/rank/rank" class="rank">
+      <image 
+        src="/images/buttons/rankWords.png" 
+        class="rankWords">
+      </image>
+      <image 
+        src="/images/icons/rankIcon.png" 
+        class="rankIcon">
+      </image>
+    </navigator>
+
+    <!-- 第三块区域 历史记录 -->
+    <navigator url="/pages/history/history" class="history">
+      <image
+        src="/images/buttons/historyWords.png" 
+        class="historrWords">
+      </image>
+      <image 
+        src="/images/icons/historyIcon.png" 
+        class="historyIcon"></image>
+    </navigator>
+
+  </view>
+
+  <!-- 下方导航栏区域 -->
+  <view class="navigationBar">
+    <navigator url="/pages/homePage/homePage" open-type="redirect" class="navigationHomePage">
+      <image
+        src="/images/icons/homePageIcon.png" 
+        class="homePageIcon">
+      </image>
+      <text class="homePageWords">主页</text>
+    </navigator>
+
+    
+    <navigator
+      url="/pages/player/player"
+      open-type="redirect"
+      class="navigationPlayer">
+      <image
+        src="/images/icons/playerIcon.png" 
+        class="playerIcon">
+      </image>
+      <text class="playerWords">玩家</text>
+    </navigator>
+  </view>
+</image>
